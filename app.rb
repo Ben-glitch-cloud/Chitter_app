@@ -1,9 +1,11 @@
-require 'sinatra/base'
+require 'sinatra/base' 
+
 
 class Chitter < Sinatra::Base 
     
-    get '/' do
-        'Hello World'
+    get '/' do 
+        
+        erb :'index'
     end
 
 end
