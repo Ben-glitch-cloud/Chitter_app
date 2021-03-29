@@ -1,11 +1,16 @@
-require 'sinatra/base' 
+require 'sinatra/base'  
+require './lib/Chitter_app.rb'
 
 
 class Chitter < Sinatra::Base 
     
-    get '/' do 
-        
+    get '/' do   
+        chitters = Chitters_app.new 
+        @chitters = chitters.store 
         erb :'index'
-    end
+    end 
 
+    get '/new' do
+        erb :'new'
+    end
 end
