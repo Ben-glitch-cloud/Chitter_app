@@ -6,7 +6,8 @@ class Chitter < Sinatra::Base
     
     get '/' do   
         chitters = Chitters_app.new 
-        @chitters = chitters.store 
+        @chitters = chitters.store   
+        p @chitters
         erb :'index'
     end 
 
@@ -16,8 +17,10 @@ class Chitter < Sinatra::Base
 
     post '/new_chitter' do 
         chitters = Chitters_app.new
-        chit = params[:chit]  
-        chitters.add(chit)
+        chit = params[:chit]   
+        time = Time.new 
+        timing = time.strftime("%d/%m/%Y")
+        chitters.add(chit, timing)
         redirect '/'
     end
 end
