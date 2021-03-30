@@ -1,4 +1,5 @@
-require 'sinatra/base'  
+require 'sinatra/base'   
+require './lib/Chitter_app_account.rb'
 require './lib/Chitter_app.rb'
 
 
@@ -8,7 +9,19 @@ class Chitter < Sinatra::Base
         chitters = Chitters_app.new 
         @chitters = chitters.store   
         erb :'index'
-    end 
+    end  
+
+    get '/sign_up' do
+        erb :'sign_up'
+    end  
+
+    post '/saving_sign_up' do 
+        chitter_account = Chitter_account.new
+        username = params['username'] 
+        password = params['password'] 
+        chitter_account.new_account(username, password)   
+        redirect '/'
+    end
 
     get '/new' do
         erb :'new'
