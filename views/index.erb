@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link href="index.css" rel="stylesheet">
     <title>Document</title>
 </head>
     <body>  
         <header>  
             <a href="/new">New Chitter</a>
         </header>
-        <div>
-            <% @chitters.reverse.each do |chitter| %>  
-                <p><%= chitter.mes %></p>     
-                <p><%= chitter.sent_time %></p>
-            <% end %> 
+        <div class="message"> 
+            <% @chitters.reverse.each do |chitter| %>   
+                <div class="message_item">
+                    <p id="id"><%= chitter.mes %></p>     
+                    <p id="date"><%= chitter.sent_time %></p>   
+                    <form action="/delete/<%= chitter.user_id %>" method="post"> 
+                        <input type="hidden" name="_method" value="DELETE"/> 
+                        <input id="delete" type="submit" value="Delete"/>
+                    </form>
+                </div>
+            <% end %>  
         </div>
     </body>
 </html>

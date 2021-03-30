@@ -7,7 +7,6 @@ class Chitter < Sinatra::Base
     get '/' do   
         chitters = Chitters_app.new 
         @chitters = chitters.store   
-        p @chitters
         erb :'index'
     end 
 
@@ -21,6 +20,13 @@ class Chitter < Sinatra::Base
         time = Time.new 
         timing = time.strftime("%d/%m/%Y")
         chitters.add(chit, timing)
+        redirect '/'
+    end 
+
+    post '/delete/:user_id' do
+        chitter = Chitters_app.new  
+        user_id = params[:user_id] 
+        chitter.delete(user_id) 
         redirect '/'
     end
 end
