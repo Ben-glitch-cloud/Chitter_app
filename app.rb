@@ -12,5 +12,12 @@ class Chitter < Sinatra::Base
 
     get '/new' do
         erb :'new'
+    end 
+
+    post '/new_chitter' do 
+        chitters = Chitters_app.new
+        chit = params[:chit]  
+        chitters.add(chit)
+        redirect '/'
     end
 end
