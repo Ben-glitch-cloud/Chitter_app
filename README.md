@@ -34,4 +34,23 @@ I want to sign up for Chitter
 ``` 
 ✅ 
 
+``` 
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+``` 
+🟡
 
+``` 
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+``` 
+🛑
+
+``` 
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+``` 
+🛑
