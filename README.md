@@ -4,7 +4,12 @@
 
 <p align="center">This is the MAKERS Chitter app project, more information will be coming soon.</p>
 
-<h2 align="center">User story</h2>
+<h2 align="center">User story</h2> 
+
+<h4>Key</h4> 
+Task Done: ✅ 
+Task in progress: 🟡 
+Task has not been done: 🛑
 
 ``` 
 As a Maker
@@ -39,14 +44,14 @@ As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 ``` 
-🟡
+✅
 
 ``` 
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ``` 
-🛑
+🟡
 
 ``` 
 As a Maker
