@@ -6,10 +6,13 @@
 
 <h2 align="center">User story</h2> 
 
-<h4>Key</h4> 
-Task Done: ✅ 
-Task in progress: 🟡 
-Task has not been done: 🛑
+<h4>Key</h4>   
+
+| Task info | Symbol | 
+| :---: | :---: |
+| Task Done |  ✅  |
+| Task in progress | 🟡  |
+| Task has not been done | 🛑 |
 
 ``` 
 As a Maker
