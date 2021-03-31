@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
 
     get '/sign_up' do
         erb :'sign_up'
-    end  
+    end   
 
     post '/saving_sign_up' do 
         chitter_account = Chitter_account.new
@@ -21,7 +21,19 @@ class Chitter < Sinatra::Base
         password = params['password'] 
         chitter_account.new_account(username, password)   
         redirect '/'
+    end 
+
+    get '/log_in' do
+        erb :'log_in'
+    end  
+
+    post '/verification' do 
+        chitter_account = Chitter_account.new
+        username = params[:username] 
+        password = params[:password] 
+        chitter_account.verify_login(username, password)
     end
+
 
     get '/new' do
         erb :'new'
