@@ -12,7 +12,7 @@
 | :---: | :---: |
 | Task Done |  ✅  |
 | Task in progress | 🟡  |
-| Task has not been done | 🛑 |
+| Task not done | 🛑 |
 
 ``` 
 As a Maker
