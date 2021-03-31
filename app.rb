@@ -1,9 +1,12 @@
-require 'sinatra/base'   
+require 'sinatra/base'    
+require 'sinatra/flash'
 require './lib/Chitter_app_account.rb'
 require './lib/Chitter_app.rb'
 
 
-class Chitter < Sinatra::Base 
+class Chitter < Sinatra::Base  
+
+    enable :sessions
     
     get '/' do   
         chitters = Chitters_app.new 
@@ -30,8 +33,14 @@ class Chitter < Sinatra::Base
     post '/verification' do 
         chitter_account = Chitter_account.new
         username = params[:username] 
-        password = params[:password] 
-        chitter_account.verify_login(username, password)
+        password = params[:password]   
+        result = chitter_account.verify_login(username, password)    
+        if result.first.to_json == "null"  
+            flash[:notice] = 'Username or Password is incorrect'
+            redirect '/log_in'
+        else 
+            redirect '/'
+        end
     end
 
 
