@@ -2,7 +2,11 @@
 
 <p align="center"><img width="300" src="https://user-images.githubusercontent.com/71974361/112901568-d6730880-90dc-11eb-8ed6-2b33c36fb3b3.gif"></p>
 
-<p align="center">This is the MAKERS Chitter app project, more information will be coming soon.</p>
+<p align="center"> This repo follows the re-creation of the MAKERS Chitter app challenge from week 4. </p> 
+
+<h2 align="center">What was used</h2> 
+
+
 
 <h2 align="center">User story</h2> 
 
