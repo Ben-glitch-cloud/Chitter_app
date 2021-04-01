@@ -6,15 +6,17 @@
 
 <h2 align="center">What this app uses</h2>  
 
-<h3>Languages</h3>
+<h3 align="center">Languages</h3>
 
 <p align="center"><img src="https://img.shields.io/badge/-Ruby-black?logo=Ruby&logoColor=red"> <img src="https://img.shields.io/badge/-HTML5-black?logo=HTML5&logoColor=orange"> <img src="https://img.shields.io/badge/-CSS3-black?logo=CSS3&logoColor=blue"></p> 
 
-<h3>Ruby Gems</h3> 
+<h3 align="center">Ruby Gems</h3>  
 
-<h3>Database</h3> 
+<p align="center"><img src="https://img.shields.io/badge/-Rspec-black?logo=RubyGems&logoColor=red"> <img src="https://img.shields.io/badge/-Capybara-black?logo=RubyGems&logoColor=orange"> <img src="https://img.shields.io/badge/-Sintra-black?logo=RubyGems&logoColor=gold"> <img src="https://img.shields.io/badge/-Sintra/flash-black?logo=RubyGems&logoColor=green"></p>
 
+<h3 align="center">Database</h3> 
 
+<p align="center"><img src="https://img.shields.io/badge/-SQL-black?logo=PostgreSQL&logoColor=lightgrey"></p>
 
 <h2 align="center">User story</h2> 
 
