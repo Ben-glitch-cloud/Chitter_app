@@ -18,11 +18,6 @@ class Chitter_account
             connection = PG.connect(dbname: 'chitter_manager')
         end 
         result = connection.exec("SELECT username, password FROM account WHERE username = '#{username}' AND password = '#{password}';")  
-        p result.first.to_json
-        result.each do |info|
-            p info["username"] 
-            p info["password"] 
-        end
     end 
 
 end 

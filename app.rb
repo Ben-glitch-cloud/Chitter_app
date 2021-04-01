@@ -8,22 +8,20 @@ class Chitter < Sinatra::Base
 
     enable :sessions
     
-    get '/' do   
+    get '/chitter' do   
         chitters = Chitters_app.new 
         @chitters = chitters.store   
         erb :'index'
     end  
 
-    get '/sign_up' do
+    get '/' do
         erb :'sign_up'
     end   
 
     post '/saving_sign_up' do 
         chitter_account = Chitter_account.new
-        username = params['username'] 
-        password = params['password'] 
-        chitter_account.new_account(username, password)   
-        redirect '/'
+        chitter_account.new_account(username = params['username'] , password = params['password'])   
+        redirect '/log_in'
     end 
 
     get '/log_in' do
@@ -32,14 +30,12 @@ class Chitter < Sinatra::Base
 
     post '/verification' do 
         chitter_account = Chitter_account.new
-        username = params[:username] 
-        password = params[:password]   
-        result = chitter_account.verify_login(username, password)    
+        result = chitter_account.verify_login(username = params[:username], password = params[:password]  )    
         if result.first.to_json == "null"  
-            flash[:notice] = 'Username or Password is incorrect'
+            # flash[:notice] = 'Username or Password is incorrect'
             redirect '/log_in'
         else 
-            redirect '/'
+            redirect '/chitter'
         end
     end
 
@@ -50,17 +46,14 @@ class Chitter < Sinatra::Base
 
     post '/new_chitter' do 
         chitters = Chitters_app.new
-        chit = params[:chit]   
         time = Time.new 
-        timing = time.strftime("%d/%m/%Y")
-        chitters.add(chit, timing)
-        redirect '/'
+        chitters.add(chit = params[:chit], timing = time.strftime("%d/%m/%Y"))
+        redirect '/chitter'
     end 
 
     post '/delete/:user_id' do
         chitter = Chitters_app.new  
-        user_id = params[:user_id] 
-        chitter.delete(user_id) 
-        redirect '/'
+        chitter.delete(user_id = params[:user_id]) 
+        redirect '/chitter'
     end
 end
