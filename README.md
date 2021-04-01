@@ -4,7 +4,15 @@
 
 <p align="center"> This repo follows the re-creation of the MAKERS Chitter app challenge from week 4. </p> 
 
-<h2 align="center">What was used</h2> 
+<h2 align="center">What this app uses</h2>  
+
+<h3>Languages</h3>
+
+<p align="center"><img src="https://img.shields.io/badge/-Ruby-black?logo=Ruby&logoColor=red"> <img src="https://img.shields.io/badge/-HTML5-black?logo=HTML5&logoColor=orange"> <img src="https://img.shields.io/badge/-CSS3-black?logo=CSS3&logoColor=blue"></p> 
+
+<h3>Ruby Gems</h3> 
+
+<h3>Database</h3> 
 
 
 
