@@ -1,4 +1,4 @@
-require 'pg' 
+require 'pg'  
 
 class Chitter_account   
 

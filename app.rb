@@ -1,12 +1,13 @@
 require 'sinatra/base'    
-require 'sinatra/flash'
+require 'sinatra/flash' 
+require 'pg'
 require './lib/Chitter_app_account.rb'
 require './lib/Chitter_app.rb'
 
 
 class Chitter < Sinatra::Base  
 
-    enable :sessions
+    enable :sessions, :method_override
     
     get '/chitter' do   
         chitters = Chitters_app.new 
@@ -46,8 +47,7 @@ class Chitter < Sinatra::Base
 
     post '/new_chitter' do 
         chitters = Chitters_app.new
-        time = Time.new 
-        chitters.add(chit = params[:chit], timing = time.strftime("%d/%m/%Y"))
+        chitters.add(chit = params[:chit], timing = Time.new.strftime("%d/%m/%Y"))
         redirect '/chitter'
     end 
 
