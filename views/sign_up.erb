@@ -12,20 +12,28 @@
             <div class="header_item">
                 <h1>Chitter App</h1>
             </div> 
-            <div class="header_item">  
-                <ul> 
-                    <li>Home</li>
-                    <li><a href="/log_in">Log In</a></li>  
-                    <li>About Us</li>
-                </ul>
-            </div>
-        </header>
-        <form action="/saving_sign_up" method="post">  
-            <label>Username</label>
-            <input type="text" name="username">  
-            <label>Password</label>
-            <input type="text" name="password"> 
-            <input type="submit" value="Sign Up">
-        </form>
+                <div class="header_item">  
+                    <ul> 
+                        <li>Home</li>
+                        <li><a href="/log_in">Log In</a></li>  
+                        <li>About Us</li>
+                    </ul>
+                </div>
+        </header> 
+        <div class="main">
+            <form action="/saving_sign_up" method="post">   
+                <div class="main_item">
+                    <label>Username</label>
+                    <input type="text" name="username">   
+                </div>
+                <div class="main_item">
+                    <label>Password</label>
+                    <input type="text" name="password">  
+                </div>
+                <div class="main_item">
+                    <input type="submit" value="Sign Up"> 
+                </div>
+            </form> 
+        </div>
     </body>
 </html>
