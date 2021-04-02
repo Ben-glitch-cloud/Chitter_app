@@ -16,7 +16,7 @@
 
 <h3 align="center">Database</h3> 
 
-<p align="center"><img src="https://img.shields.io/badge/-SQL-black?logo=PostgreSQL&logoColor=lightgrey"></p>
+<p align="center"><img src="https://img.shields.io/badge/-postgreSQL-black?logo=PostgreSQL&logoColor=lightgrey"></p>
 
 <h2 align="center">User story</h2> 
 
