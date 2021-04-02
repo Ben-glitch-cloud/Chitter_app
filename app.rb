@@ -51,7 +51,7 @@ class Chitter < Sinatra::Base
         redirect '/chitter'
     end 
 
-    post '/delete/:user_id' do
+    delete '/delete/:user_id' do
         chitter = Chitters_app.new  
         chitter.delete(user_id = params[:user_id]) 
         redirect '/chitter'
