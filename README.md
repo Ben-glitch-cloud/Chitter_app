@@ -85,10 +85,11 @@ $ bundle install
 
 4.Create the datebase and tables for the project from the folder db.  
 
-To open SQL postgres  
+To open postgreSQL 
 ``` 
 $ psqlpostgres  
-``` 
+```  
+If you are not sure what the commands are for postgreSQL then follow the link <a href="https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546">Commands</a> 
 
 5. Start running Ruby version 2.5.0. 
 ``` 
