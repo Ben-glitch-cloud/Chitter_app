@@ -40,14 +40,15 @@ a {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    flex-direction: column;
+    flex-direction: column; 
+    text-align: center;
 } 
 
 .main_item {
-    padding: 10px 0px; 
+    padding: 0px 0px; 
     margin: 0 0; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}    
 
 #log_in { 
     border: none; 

@@ -7,7 +7,9 @@ require './lib/Chitter_app.rb'
 
 class Chitter < Sinatra::Base  
 
-    enable :sessions, :method_override
+    enable :sessions, :method_override 
+
+    register Sinatra::Flash
     
     get '/chitter' do   
         chitters = Chitters_app.new 
@@ -21,7 +23,9 @@ class Chitter < Sinatra::Base
 
     post '/saving_sign_up' do 
         chitter_account = Chitter_account.new
-        chitter_account.new_account(username = params['username'] , password = params['password'])   
+        result = chitter_account.new_account(username = params['username'] , password = params['password'])  
+        p 'find error'   
+        p result
         redirect '/log_in'
     end 
 
@@ -32,21 +36,16 @@ class Chitter < Sinatra::Base
     post '/verification' do 
         chitter_account = Chitter_account.new
         p result = chitter_account.verify_login(username = params[:username], password = params[:password]  )     
-
         array = []
-
         result.each { |item| array << [item['username'], item['password']] } 
-
-            if result.first.to_json == "null" || array.flatten == ["", ""]
+            if result.first.to_json == "null" 
                 flash[:notice] = "Your Username or Password is incorrect"
                 redirect '/log_in' 
             elsif array.flatten == ["", ""]  
                 flash[:notice] = "There's nothing here:(" 
-                # come back to this bit. 
                 redirect '/log_in'
-            else 
-                redirect '/chitter'
-            end 
+            end  
+        redirect '/chitter'
     end
 
 
