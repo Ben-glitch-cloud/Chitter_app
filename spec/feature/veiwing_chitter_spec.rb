@@ -9,8 +9,6 @@ feature 'New Chitter' do
     end 
 end  
 
-
-
 feature 'Delete Chitter' do
     scenario 'from chitter' do
         visit('/chitter') 
@@ -20,4 +18,4 @@ feature 'Delete Chitter' do
         click_button 'Delete' 
         expect(page).to have_no_content "Whats up"
     end
-end
+end 

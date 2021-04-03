@@ -49,3 +49,16 @@ a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }  
 
+#log_in { 
+    border: none; 
+    background-color: cadetblue;  
+    color: cadetblue;
+    padding: 5px 15px; 
+    border-radius: 25px;  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#log_in:hover {
+    background-color: white; 
+    color: cadetblue;
+}

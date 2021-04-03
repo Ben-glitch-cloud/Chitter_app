@@ -31,13 +31,22 @@ class Chitter < Sinatra::Base
 
     post '/verification' do 
         chitter_account = Chitter_account.new
-        result = chitter_account.verify_login(username = params[:username], password = params[:password]  )    
-        if result.first.to_json == "null"  
-            # flash[:notice] = 'Username or Password is incorrect'
-            redirect '/log_in'
-        else 
-            redirect '/chitter'
-        end
+        p result = chitter_account.verify_login(username = params[:username], password = params[:password]  )     
+
+        array = []
+
+        result.each { |item| array << [item['username'], item['password']] } 
+
+            if result.first.to_json == "null" || array.flatten == ["", ""]
+                flash[:notice] = "Your Username or Password is incorrect"
+                redirect '/log_in' 
+            elsif array.flatten == ["", ""]  
+                flash[:notice] = "There's nothing here:(" 
+                # come back to this bit. 
+                redirect '/log_in'
+            else 
+                redirect '/chitter'
+            end 
     end
 
 
