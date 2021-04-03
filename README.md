@@ -16,7 +16,7 @@
 
 <h3 align="center">Database</h3> 
 
-<p align="center"><img src="https://img.shields.io/badge/-SQL-black?logo=PostgreSQL&logoColor=lightgrey"></p>
+<p align="center"><img src="https://img.shields.io/badge/-postgreSQL-black?logo=PostgreSQL&logoColor=lightgrey"></p>
 
 <h2 align="center">User story</h2> 
 
@@ -70,9 +70,44 @@ I want to log out of Chitter
 ``` 
 ✅
 
+<h2 align="center">How to get started</h2> 
+
+1. Fork the repo to your github account.  
+
+2. Clone the project in to a coding software e.g. Visual Studio or Atom 
 ``` 
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
+$ clone repo name 
+```
+3. Run Bundle install to install all the ruby gems. 
+```
+$ bundle install 
 ``` 
-🟡
+
+4.Create the datebase and tables for the project from the folder db.  
+
+To open postgreSQL 
+``` 
+$ psqlpostgres  
+```  
+If you are not sure what the commands are for postgreSQL then follow the link <a href="https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546">Commands</a> 
+
+5. Start running Ruby version 2.5.0. 
+``` 
+$ rvm 2.5.0
+``` 
+If you dont have Ruby version 2.5.0, then run this command to install.  
+``` 
+$ rbenv install 2.5.0 
+$ brew update && brew upgrade ruby-build 
+```
+To check Ruby has been installed run. 
+```
+$ list rvm 
+``` 
+
+6. To run the app.  
+```
+$ rackup
+``` 
+👏 All Done ✅
+
