@@ -32,7 +32,11 @@ a {
 .header_item {
     color: white; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-} 
+}  
+
+.main_item h3 {
+    color: red;
+}
 
 .main {
     width: 100%; 
@@ -46,14 +50,14 @@ a {
 
 .main_item {
     padding: 0px 0px; 
-    margin: 0 0; 
+    margin: 25px 0px; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }    
 
 #log_in { 
     border: none; 
     background-color: cadetblue;  
-    color: cadetblue;
+    color: white;
     padding: 5px 15px; 
     border-radius: 25px;  
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
