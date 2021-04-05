@@ -21,9 +21,12 @@
                 </div>
         </header> 
         <div class="main">
-            <form action="/saving_sign_up" method="post">     
+            <form action="/saving_sign_up" method="post">      
                 <div class="main_item">
                     <h3>Sign up</h3>  
+                </div> 
+                <div class="main_item"> 
+                    <%= flash[:notice] %>
                 </div>
                 <div class="main_item">
                     <label>Username</label>

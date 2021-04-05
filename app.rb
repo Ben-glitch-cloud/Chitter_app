@@ -22,11 +22,16 @@ class Chitter < Sinatra::Base
     end   
 
     post '/saving_sign_up' do 
-        chitter_account = Chitter_account.new
-        result = chitter_account.new_account(username = params['username'] , password = params['password'])  
-        p 'find error'   
-        p result
-        redirect '/log_in'
+        chitter_account = Chitter_account.new 
+        result = chitter_account.new_account(username = params['username'] , password = params['password'])    
+        if result == "null"  
+            flash[:notice] = "Sorry this username has been taken" 
+            redirect '/' 
+        elsif result == "nil" 
+            flash[:notice] = "Need a password"
+        else  
+        redirect '/log_in' 
+        end 
     end 
 
     get '/log_in' do
