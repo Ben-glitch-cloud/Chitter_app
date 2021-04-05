@@ -4,7 +4,7 @@
 
 <p align="center"> This repo follows the re-creation of the MAKERS Chitter app challenge from week 4. </p>  
 
-
+<p align="center"><img width="600" src="https://user-images.githubusercontent.com/71974361/113612329-99ac9180-9647-11eb-8e68-e963d07ef212.png"></p>
 
 <h2 align="center">What this app uses</h2>  
 
