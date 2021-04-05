@@ -41,7 +41,7 @@ class Chitter < Sinatra::Base
             if result.first.to_json == "null" 
                 flash[:notice] = "Your Username or Password is incorrect"
                 redirect '/log_in' 
-            elsif array.flatten == ["", ""]  
+            elsif array.flatten[0].length == 0 && array.flatten[1].length == 0
                 flash[:notice] = "There's nothing here:(" 
                 redirect '/log_in'
             end  

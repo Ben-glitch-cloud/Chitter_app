@@ -20,6 +20,16 @@ feature 'log In' do
         expect(page).to have_content 'New Chitter' 
         expect(page).to have_content 'Log out'
     end
+end  
+
+feature 'Log In error' do
+    scenario 'if the user types in the wrong password or username' do
+        visit('/log_in') 
+        fill_in 'username', with: ''
+        fill_in 'password', with: ''
+        click_button 'Log In' 
+        expect(page).to have_content "Your Username or Password is incorrect"
+    end
 end 
 
 feature 'New Chitter' do
