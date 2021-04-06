@@ -9,16 +9,8 @@ class Chitter_account
             connection = PG.connect(dbname: 'chitter_manager')
         end    
 
-        result = connection.exec("SELECT username FROM account WHERE username LIKE '#{username}%';")  
-        result.each do |item|     
-            p 'setup'
-            p item['password']
-            if item['username'] == username
-                return "null" 
-            else 
-                connection.exec("INSERT INTO account (username, password) VALUES ('#{username}', '#{password}');") 
-            end  
-        end  
+        connection.exec("INSERT INTO account (username, password) VALUES ('#{username}', '#{password}');") 
+            
     end    
 
     def verify_login(username, password)

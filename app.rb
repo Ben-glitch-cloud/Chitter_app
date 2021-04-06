@@ -22,15 +22,22 @@ class Chitter < Sinatra::Base
     end   
 
     post '/saving_sign_up' do 
-        chitter_account = Chitter_account.new 
-        result = chitter_account.new_account(username = params['username'] , password = params['password'])    
+        chitter_account = Chitter_account.new  
+
+        if params['username'] == "" || params['password'] == ""
+           flash[:notice] = "You must create a username or password" 
+           redirect '/'
+        else  
+            result = chitter_account.new_account(username = params['username'] , password = params['password']) 
+        end 
+        
         if result == "null"  
             flash[:notice] = "Sorry this username has been taken" 
             redirect '/' 
         elsif result == "nil" 
             flash[:notice] = "Need a password"
         else  
-        redirect '/log_in' 
+            redirect '/log_in' 
         end 
     end 
 
@@ -40,7 +47,7 @@ class Chitter < Sinatra::Base
 
     post '/verification' do 
         chitter_account = Chitter_account.new
-        p result = chitter_account.verify_login(username = params[:username], password = params[:password]  )     
+        result = chitter_account.verify_login(username = params[:username], password = params[:password]  )     
         array = []
         result.each { |item| array << [item['username'], item['password']] } 
             if result.first.to_json == "null" 
