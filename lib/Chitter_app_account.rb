@@ -10,16 +10,15 @@ class Chitter_account
         end    
 
         result = connection.exec("SELECT username FROM account WHERE username LIKE '#{username}%';")  
-        result.each do |item| 
-            p item 
-            if item['username'] == username 
+        result.each do |item|     
+            p 'setup'
+            p item['password']
+            if item['username'] == username
                 return "null" 
-            elsif item['password'] == ""
-                return "nill"
             else 
                 connection.exec("INSERT INTO account (username, password) VALUES ('#{username}', '#{password}');") 
             end  
-        end 
+        end  
     end    
 
     def verify_login(username, password)

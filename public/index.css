@@ -13,7 +13,13 @@ header {
 }  
 
 .header_item {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+    color: white; 
+    text-decoration: none;
+}  
+
+a {
+    text-decoration: none;
 }
 
 .message {

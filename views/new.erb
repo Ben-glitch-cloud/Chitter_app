@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link href="new.css" rel="stylesheet">
     <title>Document</title>
 </head>
-    <body>
-        <form action="/new_chitter" method="post">  
-            <input type="text" name="chit" /> 
-            <input type="submit" value="Submit" />
-        </form>
+    <body> 
+        <header> 
+            <div class="header_item"> 
+                <a id="back" href="/chitter">Back</a>
+            </div> 
+        </header> 
+        <div class="main">  
+            <div class="main_item"> 
+            <h3>Create a new Chitter</h3> 
+            </div>
+            <div class="main_item"> 
+            <form action="/new_chitter" method="post">  
+                <input type="text" name="chit" /> 
+                <input id="create" type="submit" value="Submit" />
+            </form>  
+            </div>
+        </div>
     </body>
 </html>
