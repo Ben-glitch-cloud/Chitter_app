@@ -6,7 +6,31 @@ feature 'creating a new account' do
         click_button 'Sign Up' 
         expect(page).to have_content 'Log In'
     end 
-end 
+end  
+
+feature 'create a new account error' do
+    scenario 'user must type in a username and password' do
+        visit('/') 
+        fill_in 'username', with: '' 
+        fill_in 'password', with: '' 
+        click_button 'Sign Up' 
+        expect(page).to have_content "You must create a username or password"
+    end
+end
+
+feature 'create a new account error' do
+    scenario 'another user already has this name' do
+        visit('/')
+        fill_in 'username', with: 'Victoria' 
+        fill_in 'password', with: 'Test' 
+        click_button 'Sign Up' 
+        visit('/') 
+        fill_in 'username', with: 'Victoria' 
+        fill_in 'password', with: 'Test' 
+        click_button 'Sign Up' 
+        expect(page).to have_content 'Sorry this username has been taken'
+    end
+end
 
 feature 'log In' do
     scenario 'as a user' do

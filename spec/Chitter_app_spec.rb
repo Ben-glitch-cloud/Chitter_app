@@ -10,7 +10,8 @@ describe Chitters_app do
                 expect(chitter.sent_time).to include('01/01/2021')
             end 
         end 
-    end  
+    end   
+    
     describe 'add' do
         it 'a new Chitter to the app' do
             chitter = Chitters_app.new 
