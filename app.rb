@@ -13,7 +13,8 @@ class Chitter < Sinatra::Base
     
     get '/chitter' do   
         chitters = Chitters_app.new 
-        @chitters = chitters.store   
+        @chitters = chitters.store     
+        @id = session[:id] 
         erb :'index'
     end  
 
@@ -44,7 +45,13 @@ class Chitter < Sinatra::Base
 
     post '/verification' do 
         chitter_account = Chitter_account.new
-        result = chitter_account.verify_login(username = params[:username], password = params[:password])     
+        result = chitter_account.verify_login(username = params[:username], password = params[:password])  
+        
+        id = 0
+        chitter = chitter_account.account_id(username = params[:username])  
+        chitter.each { |item| id += item.id.to_i} 
+        session[:id] = id 
+
         array = []
         result.each { |item| array << [item['username'], item['password']] } 
             if result.first.to_json == "null" 
@@ -64,7 +71,7 @@ class Chitter < Sinatra::Base
 
     post '/new_chitter' do 
         chitters = Chitters_app.new
-        chitters.add(chit = params[:chit], timing = Time.new.strftime("%d/%m/%Y"))
+        chitters.add(chit = params[:chit], timing = Time.new.strftime("%d/%m/%Y"),id = session[:id])
         redirect '/chitter'
     end 
 

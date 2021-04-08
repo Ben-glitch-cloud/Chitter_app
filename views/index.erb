@@ -20,11 +20,15 @@
             <% @chitters.reverse.each do |chitter| %>   
                 <div class="message_item">
                     <p id="id"><%= chitter.mes %></p>     
-                    <p id="date"><%= chitter.sent_time %></p>   
-                    <form action="/delete/<%= chitter.user_id %>" method="post"> 
-                        <input type="hidden" name="_method" value="DELETE"/> 
-                        <input id="delete" type="submit" value="Delete"/>
-                    </form>
+                    <p id="date"><%= chitter.sent_time %></p>     
+                    <% if chitter.id.to_i == @id %>
+                        <form action="/delete/<%= chitter.user_id %>" method="post"> 
+                            <input type="hidden" name="_method" value="DELETE"/> 
+                            <input id="delete" type="submit" value="Delete"/>
+                        </form>   
+                    <% else %> 
+                        <% nil %>
+                    <% end %>
                 </div>
             <% end %>  
         </div>

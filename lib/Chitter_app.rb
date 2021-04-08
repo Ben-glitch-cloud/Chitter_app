@@ -3,9 +3,11 @@ require 'pg'
 
 class Chitters_app  
 
-    attr_reader :user_id, :mes, :sent_time
+    attr_reader :user_id, :mes, :sent_time, :id
 
-    def initialize(user_id: nil, mes: nil, sent_time: nil) 
+    def initialize(user_id: nil, mes: nil, sent_time: nil, id: nil)  
+
+        @id = id
 
         @user_id = user_id  
 
@@ -23,17 +25,17 @@ class Chitters_app
         end 
         result = connection.exec("SELECT * FROM message;")
         result.map do |chitter|
-            Chitters_app.new(user_id: chitter['user_id'], mes: chitter['mes'], sent_time: chitter['sent_time'])
+            Chitters_app.new(user_id: chitter['message_id'], mes: chitter['mes'], sent_time: chitter['sent_time'], id: chitter['id'])
         end   
     end 
 
-    def add(chit, timing)
+    def add(chit, timing, id)
         if ENV['ENVIRONMENT'] == 'test'
             connection = PG.connect(dbname: 'chitter_manager_test')
         else
             connection = PG.connect(dbname: 'chitter_manager')
         end  
-        connection.exec("INSERT INTO message (mes, sent_time) VALUES ('#{chit}', '#{timing}');") 
+        connection.exec("INSERT INTO message (mes, sent_time, id) VALUES ('#{chit}', '#{timing}', '#{id}');") 
     end  
 
     def delete(user_id)
@@ -42,6 +44,6 @@ class Chitters_app
         else
             connection = PG.connect(dbname: 'chitter_manager')
         end 
-        connection.exec("DELETE FROM message WHERE user_id ='#{user_id}';") 
+        connection.exec("DELETE FROM message WHERE message_id ='#{user_id}';") 
     end 
 end
