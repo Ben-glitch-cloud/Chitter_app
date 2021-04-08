@@ -25,10 +25,15 @@
                         <form action="/delete/<%= chitter.user_id %>" method="post"> 
                             <input type="hidden" name="_method" value="DELETE"/> 
                             <input id="delete" type="submit" value="Delete"/>
-                        </form>   
+                        </form>    
                     <% else %> 
                         <% nil %>
-                    <% end %>
+                    <% end %> 
+                    <form action="/like" method="post">  
+                            <input type="submit" value="like"/>
+                    </form>  
+                    <%= 0 %>
+                    <%# Look at this tomorrow Post works %>
                 </div>
             <% end %>  
         </div>

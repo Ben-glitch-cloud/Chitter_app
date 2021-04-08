@@ -49,8 +49,7 @@ class Chitter < Sinatra::Base
         
         id = 0
         chitter = chitter_account.account_id(username = params[:username])  
-        chitter.each { |item| id += item.id.to_i} 
-        session[:id] = id 
+        chitter.each { |item| session[:id] = id += item.id.to_i} 
 
         array = []
         result.each { |item| array << [item['username'], item['password']] } 
@@ -71,13 +70,18 @@ class Chitter < Sinatra::Base
 
     post '/new_chitter' do 
         chitters = Chitters_app.new
-        chitters.add(chit = params[:chit], timing = Time.new.strftime("%d/%m/%Y"),id = session[:id])
+        chitters.add(chit = params[:chit], timing = Time.new.strftime("%d/%m/%Y"), id = session[:id])
         redirect '/chitter'
     end 
 
     delete '/delete/:user_id' do
         chitter = Chitters_app.new  
         chitter.delete(user_id = params[:user_id]) 
+        redirect '/chitter'
+    end 
+
+    post '/like' do
+        # this will be the like button  
         redirect '/chitter'
     end
 end
