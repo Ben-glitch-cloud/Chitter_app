@@ -1,0 +1,1 @@
+CREATE TABLE comments ( id serial PRIMARY KEY, comment VARCHAR (50), message_id INT ); 

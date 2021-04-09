@@ -13,8 +13,9 @@ class Chitter < Sinatra::Base
     
     get '/chitter' do   
         chitters = Chitters_app.new 
-        @chitters = chitters.store     
-        @id = session[:id] 
+        @chitters = chitters.store   
+        @comments = chitters.stored_comments   
+        @id = session[:id]  
         erb :'index'
     end  
 
@@ -83,6 +84,18 @@ class Chitter < Sinatra::Base
 
     post '/like' do
         # this will be the like button  
+        redirect '/chitter'
+    end 
+
+    get '/comment/:id' do 
+        chitter = Chitters_app.new 
+        chitter.add_comment(comment = params[:comment], message_id = params[:id])  
+        redirect '/chitter'
+    end 
+
+    delete '/delete_comment/:comment_id' do
+        chitter = Chitters_app.new   
+        chitter.delete_comment(comment = params[:comment_id])
         redirect '/chitter'
     end
 end

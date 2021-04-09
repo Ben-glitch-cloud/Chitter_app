@@ -21,7 +21,7 @@
                 <div class="message_item">
                     <p id="id"><%= chitter.mes %></p>     
                     <p id="date"><%= chitter.sent_time %></p>     
-                    <% if chitter.id.to_i == @id %>
+                    <% if chitter.account_id.to_i == @id %>
                         <form action="/delete/<%= chitter.user_id %>" method="post"> 
                             <input type="hidden" name="_method" value="DELETE"/> 
                             <input id="delete" type="submit" value="Delete"/>
@@ -29,9 +29,26 @@
                     <% else %> 
                         <% nil %>
                     <% end %> 
-                    <%# Look at this tomorrow Post works %>
+                    <form action="/comment/<%= chitter.user_id %>"> 
+                        <input type="text" name="comment"/> 
+                        <input type="submit" value="Add comment"/>
+                    </form>    
+                    <p>Comments</p>
+                    <% @comments.each do |comment| %> 
+                        <% if comment.message_id == chitter.user_id %>
+                            <ul>  
+                                <p><%= comment.comment %></p> 
+                                <form action="/delete_comment/<%= comment.id_comment %>" method="post"> 
+                                    <input type="hidden" name="_method" value="DELETE"/> 
+                                    <input type="submit" value="Delete">
+                                </form>
+                            </ul> 
+                        <% else %>
+                            <% nil %>
+                        <% end %> 
+                    <% end %>
                 </div>
-            <% end %>  
+            <% end %>    
         </div>
     </body>
 </html>
