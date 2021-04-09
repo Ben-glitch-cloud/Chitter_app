@@ -50,7 +50,8 @@ class Chitter < Sinatra::Base
         id = 0
         chitter = chitter_account.account_id(username = params[:username])  
         chitter.each { |item| session[:id] = id += item.id.to_i} 
-
+        #this is where the id comes out.  
+        
         array = []
         result.each { |item| array << [item['username'], item['password']] } 
             if result.first.to_json == "null" 
