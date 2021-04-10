@@ -28,7 +28,10 @@
                         </form>    
                     <% else %> 
                         <% nil %>
-                    <% end %> 
+                    <% end %>  
+                    <form action="/like_button/<%= @id %>/<%= chitter.user_id %>" method="post">  
+                        <input type="submit" value="Like"/>
+                    </form>
                     <form action="/comment/<%= chitter.user_id %>/<%= chitter.account_id.to_i %>"> 
                         <input type="text" name="comment"/>  
                         <input type="submit" value="Add comment"/>

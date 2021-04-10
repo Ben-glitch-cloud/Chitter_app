@@ -89,6 +89,27 @@ class Chitters_app
         end 
 
         connection.exec("DELETE FROM comments WHERE id_comment = '#{comment.to_i}';")
-    end  
+    end   
 
+    def like_button(account_id, message_id) 
+        if ENV['ENVIRONMENT'] == 'test'
+            connection = PG.connect(dbname: 'chitter_manager_test')
+        else
+            connection = PG.connect(dbname: 'chitter_manager')
+        end 
+
+        result = connection.exec("SELECT like_count FROM like_count_table WHERE account_id = '#{account_id}' AND message_id = '#{message_id}';")  
+
+        if result.first.to_json == 'null' 
+            connection.exec("INSERT INTO like_count_table(account_id, message_id, like_count) VALUES ('#{account_id}', '#{message_id}', '1');") 
+            else 
+            result.map do |item| 
+                if item['like_count'] == "1"  
+                    connection.exec("INSERT INTO like_count_table(account_id, message_id, like_count) VALUES ('#{account_id}', '#{message_id}', '-1');") 
+                else  item['like_count'] == "-1"
+                    connection.exec("INSERT INTO like_count_table(account_id, message_id, like_count) VALUES ('#{account_id}', '#{message_id}', '-1');") 
+                end 
+            end 
+        end
+    end 
 end

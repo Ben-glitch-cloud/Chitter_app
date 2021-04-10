@@ -1,0 +1,1 @@
+CREATE TABLE like_count_table (like_id serial PRIMARY KEY, account_id INTEGER, message_id INTEGER, like_count INTEGER);

@@ -97,5 +97,11 @@ class Chitter < Sinatra::Base
         chitter = Chitters_app.new   
         chitter.delete_comment(comment = params[:comment_id])
         redirect '/chitter'
+    end 
+
+    post '/like_button/:account_id/:message_id' do 
+        chitter = Chitters_app.new 
+        chitter.like_button(params[:account_id], params[:message_id])
+        redirect '/chitter'
     end
 end
