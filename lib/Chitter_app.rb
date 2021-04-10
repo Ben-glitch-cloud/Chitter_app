@@ -3,9 +3,9 @@ require 'pg'
 
 class Chitters_app  
 
-    attr_reader :user_id, :mes, :sent_time, :account_id, :id_comment, :comment, :message_id
+    attr_reader :user_id, :mes, :sent_time, :account_id, :id_comment, :comment, :message_id, :account_id_comments
 
-    def initialize(user_id: nil, mes: nil, sent_time: nil, account_id: nil, id_comment: nil, comment: nil, message_id: nil)  
+    def initialize(user_id: nil, mes: nil, sent_time: nil, account_id: nil, id_comment: nil, comment: nil, message_id: nil, account_id_comments: nil)  
 
         @account_id = account_id
 
@@ -19,7 +19,9 @@ class Chitters_app
 
         @comment = comment 
 
-        @message_id = message_id
+        @message_id = message_id 
+
+        @account_id_comments = account_id_comments
 
     end 
     
@@ -55,14 +57,14 @@ class Chitters_app
         connection.exec("DELETE FROM comments WHERE message_id = '#{user_id}';")
     end  
 
-    def add_comment(comment, message_id)
+    def add_comment(comment, message_id, account_id)
         if ENV['ENVIRONMENT'] == 'test'
             connection = PG.connect(dbname: 'chitter_manager_test')
         else
             connection = PG.connect(dbname: 'chitter_manager')
         end 
 
-        connection.exec("INSERT INTO comments(comment, message_id) VALUES ('#{comment}', '#{message_id}');")  
+        connection.exec("INSERT INTO comments(comment, message_id, account_id) VALUES ('#{comment}', '#{message_id}', '#{account_id}');")  
     end  
 
     def stored_comments
@@ -75,7 +77,7 @@ class Chitters_app
         result = connection.exec("SELECT * FROM comments;")
 
         result.map do |comment|   
-            Chitters_app.new(id_comment: comment['id_comment'], comment: comment['comment'], message_id: comment['message_id'])
+            Chitters_app.new(id_comment: comment['id_comment'], comment: comment['comment'], message_id: comment['message_id'], account_id_comments: comment['account_id'])
         end 
     end  
 

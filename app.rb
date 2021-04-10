@@ -87,9 +87,9 @@ class Chitter < Sinatra::Base
         redirect '/chitter'
     end 
 
-    get '/comment/:id' do 
-        chitter = Chitters_app.new 
-        chitter.add_comment(comment = params[:comment], message_id = params[:id])  
+    get '/comment/:id/:account_id' do 
+        chitter = Chitters_app.new   
+        chitter.add_comment(comment = params[:comment], message_id = params[:id], account_id = params[:account_id])  
         redirect '/chitter'
     end 
 
