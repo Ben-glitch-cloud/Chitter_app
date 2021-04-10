@@ -72,7 +72,30 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ``` 
-✅
+✅ 
+
+<h3>Things that have been added</h3> 
+
+``` 
+As a Maker 
+So I can delete peeps
+I would like to be able to delete posts
+```
+✅ 
+
+``` 
+As a Maker 
+So I can comment on a peep
+I would like to comment on other peoples peeps 
+```
+✅ 
+
+``` 
+As a Maker 
+So I can like a peep 
+I would like to be able to like a peep 
+``` 
+🟡
 
 <h2 align="center">How to get started</h2> 
 
