@@ -125,9 +125,8 @@ class Chitters_app
             else 
             result.map do |item| 
                 if item['like_count'] == "1"  
-                    connection.exec("INSERT INTO like_count_table(account_id, message_id, like_count) VALUES ('#{account_id}', '#{message_id}', '-1');") 
-                else  item['like_count'] == "-1"
-                    connection.exec("INSERT INTO like_count_table(account_id, message_id, like_count) VALUES ('#{account_id}', '#{message_id}', '1');") 
+                    result_id = connection.exec("SELECT like_id FROM like_count_table WHERE account_id = '#{account_id}' AND message_id = '#{message_id}';")   
+                    result_id.each { |item| connection.exec("DELETE FROM like_count_table WHERE like_id = '#{item['like_id']}';") }
                 end 
             end 
         end
