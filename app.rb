@@ -11,10 +11,15 @@ class Chitter < Sinatra::Base
 
     register Sinatra::Flash
     
-    get '/chitter' do   
+    get '/chitter' do     
+        @array = [] 
+
         chitters = Chitters_app.new 
-        @chitters = chitters.store   
-        @comments = chitters.stored_comments   
+        @chitters = chitters.store     
+        @comments = chitters.stored_comments 
+        @like = chitters.stored_likes     
+        #get likes to work latter. 
+
         @id = session[:id]  
         erb :'index'
     end  

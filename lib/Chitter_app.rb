@@ -3,9 +3,9 @@ require 'pg'
 
 class Chitters_app  
 
-    attr_reader :user_id, :mes, :sent_time, :account_id, :id_comment, :comment, :message_id, :account_id_comments
+    attr_reader :user_id, :mes, :sent_time, :account_id, :id_comment, :comment, :message_id, :account_id_comments, :account_id_like, :message_id_like, :like_count 
 
-    def initialize(user_id: nil, mes: nil, sent_time: nil, account_id: nil, id_comment: nil, comment: nil, message_id: nil, account_id_comments: nil)  
+    def initialize(user_id: nil, mes: nil, sent_time: nil, account_id: nil, id_comment: nil, comment: nil, message_id: nil, account_id_comments: nil, account_id_like: nil, message_id_like: nil, like_count: nil)  
 
         @account_id = account_id
 
@@ -21,7 +21,13 @@ class Chitters_app
 
         @message_id = message_id 
 
-        @account_id_comments = account_id_comments
+        @account_id_comments = account_id_comments 
+
+        @account_id_like = account_id_like 
+
+        @message_id_like = message_id_like 
+
+        @like_count = like_count
 
     end 
     
@@ -90,6 +96,20 @@ class Chitters_app
 
         connection.exec("DELETE FROM comments WHERE id_comment = '#{comment.to_i}';")
     end   
+    
+    def stored_likes 
+        if ENV['ENVIRONMENT'] == 'test'
+            connection = PG.connect(dbname: 'chitter_manager_test')
+        else
+            connection = PG.connect(dbname: 'chitter_manager')
+        end 
+
+        result = connection.exec("SELECT * FROM like_count_table;") 
+
+        result.map do |like_peep|  
+            Chitters_app.new(account_id_like: like_peep['account_id'], message_id_like: like_peep['message_id'],like_count: like_peep['like_count'])
+        end 
+    end 
 
     def like_button(account_id, message_id) 
         if ENV['ENVIRONMENT'] == 'test'
@@ -107,7 +127,7 @@ class Chitters_app
                 if item['like_count'] == "1"  
                     connection.exec("INSERT INTO like_count_table(account_id, message_id, like_count) VALUES ('#{account_id}', '#{message_id}', '-1');") 
                 else  item['like_count'] == "-1"
-                    connection.exec("INSERT INTO like_count_table(account_id, message_id, like_count) VALUES ('#{account_id}', '#{message_id}', '-1');") 
+                    connection.exec("INSERT INTO like_count_table(account_id, message_id, like_count) VALUES ('#{account_id}', '#{message_id}', '1');") 
                 end 
             end 
         end

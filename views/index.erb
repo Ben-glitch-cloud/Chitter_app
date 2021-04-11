@@ -31,7 +31,15 @@
                     <% end %>  
                     <form action="/like_button/<%= @id %>/<%= chitter.user_id %>" method="post">  
                         <input type="submit" value="Like"/>
-                    </form>
+                    </form>  
+                    <% @like.each do |like_count| %> 
+                        <% if like_count.message_id_like == chitter.user_id %>   
+                            <% @array << like_count.like_count.to_i %> 
+                            <p><%= @array.sum %></p>
+                        <% else %> 
+                            <% nil %>
+                        <% end %>
+                    <% end %>
                     <form action="/comment/<%= chitter.user_id %>/<%= chitter.account_id.to_i %>"> 
                         <input type="text" name="comment"/>  
                         <input type="submit" value="Add comment"/>
