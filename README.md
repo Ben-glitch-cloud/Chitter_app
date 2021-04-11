@@ -7,7 +7,7 @@
 </br> 
 <h2 align="center">Images of the Project</h2>
 
-<p align="center"><img width="500" src="https://user-images.githubusercontent.com/71974361/114308951-6782b000-9add-11eb-846b-58a99583bb4d.png" /></p>
+<p align="center"><img width="500" src="https://user-images.githubusercontent.com/71974361/114308951-6782b000-9add-11eb-846b-58a99583bb4d.png"/> <img width="500" src="https://user-images.githubusercontent.com/71974361/114309053-c7795680-9add-11eb-926e-ac96d6bc5e76.png"/> </p>
 
 <h2 align="center">What this app uses</h2>  
 
