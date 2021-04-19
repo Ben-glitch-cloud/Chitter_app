@@ -96,7 +96,7 @@ As a Maker
 So I can like a peep 
 I would like to be able to like a peep 
 ``` 
-🟡
+✅
 
 <h2 align="center">How to get started</h2> 
 
